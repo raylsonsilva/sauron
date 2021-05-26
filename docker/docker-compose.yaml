@@ -1,0 +1,15 @@
+version: "3.4"
+
+services:
+
+  outrider:
+    build:
+      context: ".."
+      dockerfile: "docker/go/Dockerfile"
+    hostname: "outrider"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "redis"
+    volumes:
+      - "$HOME/.aws:/root/.aws:ro"
